@@ -31,7 +31,7 @@
         <div class="home-content">
             <h3>Hello, It's Me</h3>
             <h1>Tanvir Ahmed</h1>
-            <h3>And I'm a <span>Frontend Developer</span></h3>
+            <h3>And I'm a <span id="element"></span></h3>
             <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Provident impedit, deleniti aut voluptates dignissimos at. Officiis pariatur iusto dolore repellat ut expedita, harum corporis, voluptas consequuntur quisquam vero mollitia nobis?
 
             </p>
@@ -193,7 +193,28 @@
     </div>
     </footer>
 
-    <script src="js/script.js"></script>
+    <!-- scroll reveal -->
+    <script src="https://unpkg.com/scrollreveal"></script>
+
+
+
+    <script src="script.js"></script>
+
+    <!-- typed js -->
+    <script src="https://unpkg.com/typed.js@2.1.0/dist/typed.umd.js"></script>
+
+  <!-- Setup and start animation! -->
+    <script>
+        var typed = new Typed('#element', {
+        strings: ['Businessman.', 'Frontend Developer.','Cyber Security Expert'],
+        typeSpeed: 100,
+        backSpedd: 100,
+        backDelay: 1000,
+        loop: true,
+        });
+    </script>
+
+
 
 </body>
 </html>
