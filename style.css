@@ -376,7 +376,7 @@ span{
     display: inline-flex;
     justify-content: centrer;
     align-items: center;
-    padding: 8rem;
+    padding: .2rem;
     background: var(--main-color);
     border-radius: .8rem;
     transition: .5s ease;
