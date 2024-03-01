@@ -1,7 +1,9 @@
+
+
 <?php
 
-    include "connection.php";
-    if(isset($_POST['submit'])){
+    $conn = mysqli_connect("localhost","root","tanvir","portfolio") or die("connection is not done!"); 
+    //if(isset($_POST['submit'])){
         $userName = $_POST["username"];
         $password = $_POST["password"];
 
@@ -12,6 +14,7 @@
 
         if($count == 1){
             header("Location:check_page.php");
+
         }
         else {
             echo '<script>
@@ -19,7 +22,10 @@
                 alert("Login failed: Username or password invalid");
                 </script>';
         }
-    }
+
+    
+        $conn->close();
+
     
 
 
@@ -44,5 +50,7 @@
         }
     }
     </script>
+    <?php
+    
 
 ?>
