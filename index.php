@@ -1,3 +1,28 @@
+<?php
+
+    /*
+    session_start();
+
+    if(isset($_SESSION['last_section'])){
+        $lastSection = $_SESSION['last_section'];
+    } else {
+        $lastSection = 'last_section';
+    }
+    if(isset($_GET['section'])){
+        $lastSection = $_GET['section'];
+        $_SESSION['last_section'] = $lastSection;
+    }
+    */
+    //session_abort();
+
+    session_start();
+    $alink = "";
+  
+
+?>
+
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -18,12 +43,13 @@
         <i class='bx bx-menu' id="menu-icon" ></i>
         
         <nav class="navbar">
-            <a href="#home" class="active">Home</a>
-            <a href="#about">About</a>
-            <a href="#services">Services</a>
-            <a href="#portfolio">Projects</a>
-            <a href="#contact">Contact</a>
+            <a href="#home" onclick="'<?php $_SESSION['url']='#home'; ?>'">Home</a>
+            <a href="#about" onclick="'<?php $_SESSION['url']='#about'; ?>'">About</a>
+            <a href="#services" onclick="'<?php $_SESSION['url']='#services'; ?>'">Services</a>
+            <a href="#portfolio" onclick="'<?php $_SESSION['url']='#portfolio'; ?>'">Projects</a>
+            <a href="#contact" onclick="'<?php $_SESSION['url']='#contact'; ?>'">Contact</a>
             <a href="databaseFile/admin_login.php">Admin Panel</a>
+            <a href="initial_page.php">First Page</a>
         </nav>
     
     </header>
@@ -163,6 +189,21 @@
         loop: true,
         });
     </script>
+    <!-- 
+        <script>
+        document.addEventListener('DOMContentLoaded', function(){
+            var lastVisitedSection = '<?php //echo $lastVisitedSection; ?>';
+            localStorage.setItem = ('lastVisitedSection',lastVisitedSection);
+        });
+
+        function updateLastSection(section){
+            localStorage.setItem('lastVisitedSection',section);
+        }
+    </script>
+    -->
+
+
+    
 
 
 
