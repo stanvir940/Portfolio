@@ -20,15 +20,20 @@
 
         // Read the file content
         $fileContent = file_get_contents($tmpName);
+        $targetDirectory = "upload/".$fileName;
+        move_uploaded_file($tmpName,$targetDirectory);
 
         // Prepare and execute the query
         $stmt = $mysqli->prepare("INSERT INTO projects (project_title,project_description,image,image_data) VALUES (?, ?, ?, ?)");
-        $stmt->bind_param("ssbs", $projectTitle, $description, $fileContent, $fileName);
+        $stmt->bind_param("ssbs", $projectTitle, $description, $fileContent, $targetDirectory);
         $stmt->execute();
         
         // Check if the query was successful
         if ($stmt->affected_rows > 0) {
-            echo "Image uploaded successfully.";
+            
+            header("location: check_page.php");
+            exit;
+
         } else {
             echo "Error uploading image.";
         }

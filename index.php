@@ -23,6 +23,7 @@
             <a href="#services">Services</a>
             <a href="#portfolio">Projects</a>
             <a href="#contact">Contact</a>
+            <a href="databaseFile/admin_login.php">Admin Panel</a>
         </nav>
     
     </header>
@@ -38,7 +39,7 @@
             </p>
 
             <div class="social-media">
-                <a href="#"><i class='bx bxl-facebook' ></i></a> 
+                <a href="https://www.facebook.com/tanvir.shariar.01"><i class='bx bxl-facebook' ></i></a> 
                 <a href="#" id=""><i class='bx bxl-instagram' ></i></a>
                 <a href="#"><i class='bx bxl-twitter' ></i></a>
                 <a href="#"><i class='bx bxl-linkedin-square' ></i></a>
@@ -101,60 +102,8 @@
         </h2>
 
         <div class="portfolio-container">
-            <div class="portfolio-box">
-                <img src="project1.jpg" alt="">
-                <div class="portfolio-layer">
-                    <h4>Web Design</h4>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. </p>
-                    <a href="#"><i class='bx bx-link-external' ></i></a>
-                </div>
-            </div>
-
-            <div class="portfolio-box">
-                <img src="project2.jpg" alt="">
-                <div class="portfolio-layer">
-                    <h4>Web Design</h4>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. </p>
-                    <a href="#"><i class='bx bx-link-external' ></i></a>
-                </div>
-            </div>
-
-            <div class="portfolio-box">
-                <img src="project3.jpg" alt="">
-                <div class="portfolio-layer">
-                    <h4>Web Design</h4>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eum deleniti beatae maxime cupiditate repellat dolore. </p>
-                    <a href="#"><i class='bx bx-link-external' ></i></a>
-                </div>
-            </div>
-
-            <div class="portfolio-box">
-                <img src="project4.jpg" alt="">
-                <div class="portfolio-layer">
-                    <h4>Web Design</h4>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. </p>
-                    <a href="#"><i class='bx bx-link-external' ></i></a>
-                </div>
-            </div>
-
-
-            <div class="portfolio-box">
-                <img src="project3.jpg" alt="">
-                <div class="portfolio-layer">
-                    <h4>Web Design</h4>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eum deleniti beatae maxime cupiditate repellat dolore. </p>
-                    <a href="#"><i class='bx bx-link-external' ></i></a>
-                </div>
-            </div>
-
-            <div class="portfolio-box">
-                <img src="project1.jpg" alt="">
-                <div class="portfolio-layer">
-                    <h4>Web Design</h4>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. </p>
-                    <a href="#"><i class='bx bx-link-external' ></i></a>
-                </div>
-            </div>
+            <?php include "retrieve.php"; ?>
+            
 
         </div>
     </section>
