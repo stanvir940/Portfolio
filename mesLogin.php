@@ -5,13 +5,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="databaseStyle.css">
+    <link rel="stylesheet" href="databaseFile/databaseStyle.css">
     <title>Document</title>
 </head>
 <body>
 
     <div class="container">
-        <form action="admin_login.php" method="post" id="aForm" onsubmit="return isValid()">
+        <form action="mesLogin.php" method="post" id="aForm" onsubmit="return isValid()">
             <h1>Admin Login</h1>
             <label for="username">Username:</label>
             <input type="text" id="username" name="username" ><br>
@@ -32,7 +32,7 @@
 
     if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $conn = mysqli_connect("localhost","root","tanvir","portfolio") or die("connection is not done!"); 
-    //if(isset($_POST['submit'])){
+
         $username = $_POST["username"];
         $password = $_POST["password"];
 
@@ -41,12 +41,9 @@
         $row = mysqli_fetch_array($result, MYSQLI_ASSOC);
         $count = mysqli_num_rows($result);
 
-        session_start();
-        $_SESSION['user'] = $username;
-
         if($count == 1){
-            setcookie("username", $username, time() + 300, "/");
-            header("Location:check_page.php");
+
+            header("Location:message.php");
             exit;
 
         }
@@ -64,18 +61,7 @@
         mysqli_close($conn);
     }
     
-    if(isset($_COOKIE['username'])){
-        $cookieCount = isset($_COOKIE['cookiecount']) ? $_COOKIE['cookiecount'] + 1 : 0;
-        setcookie('cookiecount',$cookieCount,time()+300,"/");
-
-        $userName = $_COOKIE['username'];
-        //echo '<script>
-                //window.location.href="check_page.php";
-                //alert("You are already logged in!");
-                //</script>';
-        header("location: check_page.php");
-        exit;
-    } 
+    
     
     
     ?> 

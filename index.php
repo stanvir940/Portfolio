@@ -1,25 +1,4 @@
-<?php
 
-    /*
-    session_start();
-
-    if(isset($_SESSION['last_section'])){
-        $lastSection = $_SESSION['last_section'];
-    } else {
-        $lastSection = 'last_section';
-    }
-    if(isset($_GET['section'])){
-        $lastSection = $_GET['section'];
-        $_SESSION['last_section'] = $lastSection;
-    }
-    */
-    //session_abort();
-
-    session_start();
-    $alink = "";
-  
-
-?>
 
 
 
@@ -43,13 +22,13 @@
         <i class='bx bx-menu' id="menu-icon" ></i>
         
         <nav class="navbar">
-            <a href="#home" onclick="'<?php $_SESSION['url']='#home'; ?>'">Home</a>
-            <a href="#about" onclick="'<?php $_SESSION['url']='#about'; ?>'">About</a>
-            <a href="#services" onclick="'<?php $_SESSION['url']='#services'; ?>'">Services</a>
-            <a href="#portfolio" onclick="'<?php $_SESSION['url']='#portfolio'; ?>'">Projects</a>
-            <a href="#contact" onclick="'<?php $_SESSION['url']='#contact'; ?>'">Contact</a>
+            <a href="#home" >Home</a>
+            <a href="#about" >About</a>
+            <a href="#services" >Services</a>
+            <a href="#portfolio" >Projects</a>
+            <a href="#contact" >Contact</a>
             <a href="databaseFile/admin_login.php">Admin Panel</a>
-            <a href="initial_page.php">First Page</a>
+            <a href="mesLogin.php" >Messages</a>
         </nav>
     
     </header>
@@ -139,19 +118,16 @@
     <section class="contact" id="contact">
         <h2 class="heading">Contact <span>Me!</span></h2>
 
-        <form action="#">
+        <form action="index.php" method="post">
             <div class="input-box">
-                <input type="text" placeholder="Full Name">
-                <input type="text" placeholder="Email Address">
+                <input type="email" name="email" placeholder="Email">
+                
             </div>
 
-            <div class="input-box">
-                <input type="text" placeholder="Mobile Number">
-                <input type="text" placeholder="Email Subject">
-            </div>
+            
 
-            <textarea name="" id="" cols="30" rows="10" placeholder="Your Message"></textarea>
-            <input type="submit" value="Send Message" class="btn">
+            <textarea name="message" id="" cols="30" rows="10" placeholder="Your Message"></textarea>
+            <input type="submit" name="submit" value="Send Message" class="btn">
         </form>
 
     </section>
@@ -189,23 +165,42 @@
         loop: true,
         });
     </script>
-    <!-- 
-        <script>
-        document.addEventListener('DOMContentLoaded', function(){
-            var lastVisitedSection = '<?php //echo $lastVisitedSection; ?>';
-            localStorage.setItem = ('lastVisitedSection',lastVisitedSection);
-        });
-
-        function updateLastSection(section){
-            localStorage.setItem('lastVisitedSection',section);
-        }
-    </script>
-    -->
-
-
-    
 
 
 
 </body>
 </html>
+
+<?php
+
+    
+    
+    if (isset($_POST['submit'])){
+        $mysqli = mysqli_connect("localhost","root","tanvir","portfolio") or die("connection is not done!");  
+        $email = $_POST["email"];
+        $message = $_POST["message"];
+        
+
+        // Prepare and execute the query
+        $stmt = $mysqli->prepare("INSERT INTO messages (email,message) VALUES (?, ?)");
+        $stmt->bind_param("ss", $email, $message);
+        $stmt->execute();
+        
+        // Check if the query was successful
+        if ($stmt->affected_rows > 0) {
+            
+            '<script> alert("Message Sent"); </script>';
+            
+
+        } else {
+            '<script> alert("Message is not Sent"); </script>';
+        }
+
+        // Close statement
+        $stmt->close();
+        $mysqli->close();
+    }           
+
+    
+
+?>

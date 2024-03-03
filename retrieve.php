@@ -18,20 +18,16 @@
                 echo '<div class="portfolio-box" id="element_{$row["id"]}">';
                 
 
-                //echo '<img src="data:image/*;charset=utf8;base64,' . base64_encode($row['image']) . '" alt="Image" />'; 
-                //echo '<img src="{$row["image_data"]}' . base64_encode($row['image_data']) . '" alt="Image" />'; 
-                //echo "<p>{$row['image_data']}</p>";
-                
-                //echo "<img src='cocomelon-42049.png'>";
-                //echo "<img src='upload/{$row['image_data']}' "; 
-
                 echo "<img src='databaseFile/{$row['image_data']}'>";
+
+                $id = $row['id'];
+                $image_data = $row['image_data'];
 
                 echo "<div class='portfolio-layer'>";
                 echo "<h4>{$row['project_title']}</h4>";
                 echo "<p>{$row['project_description']}</p>";
                 echo "<a href='#'><i class='bx bx-link-external' ></i></a>";
-                echo "<a href='#'><i class='bx bx-message-alt-x' ></i></a>";
+                echo "<a href='delete.php?id=$id&dir=$image_data' ><i class='bx bx-message-alt-x' ></i></a>";
                 //echo base64_encode($row['image']);
 
                 

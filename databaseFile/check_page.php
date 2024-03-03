@@ -1,4 +1,13 @@
-<?php ?>
+<?php 
+
+    $user = "";
+    session_start();
+    if(isset($_SESSION['user'])){
+        $user = $_SESSION['user'];
+    } 
+    session_destroy();
+
+?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -12,6 +21,7 @@
     <div class="container">
 
         <form action="dataUp.php" method="post" id="aForm" onsubmit="return isValid()" enctype="multipart/form-data">
+            <h1 class="name">"<?php echo 'Welcome to admin Panel '. $user ?>"</h1>
             <h1>Login Successful!</h1>
             <label for="projectTitle">Project Title :</label>
             <input type="text" id="projectTitle" name="projectTitle" placeholder="Project Title"><br>
